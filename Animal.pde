@@ -4,6 +4,7 @@ class Animal implements Organism {
   color hideColor;
   int size;
   int energy;
+  Diet food;
 
   Animal(color _hide, int _size, PVector _position) {
     this.hideColor = _hide;
