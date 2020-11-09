@@ -1,4 +1,21 @@
-void setup(){}
+void setup() {
+}
+
+void draw() {
+}
+
+interface Render {
+  void render();
+  PVector getPosition();
+}
+
+interface Organism extends Render {
+  int getEnergy();
+  void update();
+
+  void interaction(Organism o);
+}
 
 
-void draw(){}
+class Horse extends Animal {
+}
