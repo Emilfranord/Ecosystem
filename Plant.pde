@@ -7,9 +7,7 @@ class Plant implements Organism {
     this.leafColor = _leaf;
     this.size = _size;
     this.position = _position;
-  
-  
-
+  }
   Plant(int _size, PVector _position) {
     this(color(#00ff00), _size, _position );
   }
@@ -27,18 +25,20 @@ class Plant implements Organism {
   int getEnergy() {
     return size;
   }
-  
+
+  Diet getDiet() {
+    return new Sunlight();
+  }
   void update() {
     // plant grows over time
-    if(frameCount % 500 ==0){
+    if (frameCount % 500 ==0) {
       size++;
-    } 
+    }
   }
 
   void interaction(Organism o) {
-    if(o.food instanceof Herbivore){
+    if (o.getDiet() instanceof Herbivore) {
       size--;
     }
-    
   }
 }

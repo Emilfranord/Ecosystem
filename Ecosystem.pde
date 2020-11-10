@@ -28,8 +28,15 @@ interface Organism extends Render {
   void update();
 
   void interaction(Organism o);
+  Diet getDiet();
 }
 
 
-//class Horse extends Animal {
-//}
+class Horse extends Animal {
+  Horse(int _size, PVector _position) {
+    super(color(#8E7618), _size, _position);
+    this.setDiet(new Herbivore());
+  }
+}
+
+class Wolf extends Animal{}

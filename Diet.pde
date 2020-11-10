@@ -13,3 +13,11 @@ class Carnivore implements Diet {
     return o instanceof Animal;
   }
 }
+
+
+class Sunlight implements Diet{
+  boolean canEat(Organism o) {
+    return false;
+  }
+
+}
