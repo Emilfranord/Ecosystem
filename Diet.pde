@@ -14,10 +14,8 @@ class Carnivore implements Diet {
   }
 }
 
-
 class Sunlight implements Diet{
   boolean canEat(Organism o) {
     return false;
   }
-
 }

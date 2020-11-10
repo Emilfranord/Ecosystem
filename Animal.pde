@@ -26,25 +26,32 @@ class Animal implements Organism {
     return energy;
   }
 
-  Diet getDiet(){
+  Diet getDiet() {
     return food;
   }
 
-  void setDiet(Diet d){
+  void setDiet(Diet d) {
     food = d;
   }
-  
+
+  int getSize() {
+    return size;
+  }
+
+
   void update() {
     move();
   }
-  
-  
-  private void move(){
-  // refractor this into a interface with classes  
+
+  private void move() {
+    // refractor this into a interface with classes  
     position.add(PVector.random2D());
   }
-  
+
 
   void interaction(Organism o) {
+    if (collision(this, o)) {
+      
+    }
   }
 }

@@ -29,6 +29,11 @@ class Plant implements Organism {
   Diet getDiet() {
     return new Sunlight();
   }
+
+  int getSize() {
+    return size;
+  }
+
   void update() {
     // plant grows over time
     if (frameCount % 500 ==0) {
@@ -37,8 +42,11 @@ class Plant implements Organism {
   }
 
   void interaction(Organism o) {
-    if (o.getDiet() instanceof Herbivore) {
-      size--;
+    if (collision(this, o)) {
+      if (o.getDiet() instanceof Herbivore) {
+        size--;
+        println(size);
+      }
     }
   }
 }
