@@ -4,10 +4,17 @@ void setup() {
   size(500, 500);
 
   rendered.add(new Plant(10, new PVector(100, 70)));
-  rendered.add(new Animal(color(#ffa500), 10, new PVector(100, 100)));
-  //rendered.add(new Plant(10, new PVector(100, 40)));
+  //rendered.add(new Animal(color(#ffa500), 10, new PVector(100, 100)));
+  rendered.add(new Plant(10, new PVector(100, 40)));
   rendered.add(new Wolf(7, new PVector(120, 40) ));
-  rendered.add(new Horse(20, new PVector(100, 55)));
+  rendered.add(new Wolf(7, new PVector(130, 40) ));
+  rendered.add(new Wolf(7, new PVector(140, 40) ));
+  rendered.add(new Wolf(7, new PVector(150, 40) ));
+  rendered.add(new Horse(20, new PVector(160, 55)));
+  rendered.add(new Horse(20, new PVector(170, 55)));
+  rendered.add(new Horse(20, new PVector(160, 65)));
+  rendered.add(new Horse(20, new PVector(160, 75)));
+
 }
 
 void draw() {
@@ -25,6 +32,8 @@ void draw() {
       }
     }
   }
+  
+  rendered = removeDead(rendered);
 }
 
 interface Render {
@@ -40,7 +49,6 @@ interface Organism extends Render {
   void interaction(Organism o);
   Diet getDiet();
 }
-
 
 class Horse extends Animal {
   Horse(int _size, PVector _position) {
@@ -61,16 +69,14 @@ boolean collision(Organism alpha, Organism beta) {
 }
 
 
-
-
+// Adam thinks this is bad code
 ArrayList <Render> removeDead(ArrayList <Render> input) {
-  ArrayList <Render> temp = new ArrayList<Render>();
+  ArrayList <Render> temp = new ArrayList<Render>(input.size());
 
   for (Render q : input) {
-    if (!dead) {
+    if (q.getSize() > 0) {
       temp.add(q);
     }
   }
-
   return temp;
 }
