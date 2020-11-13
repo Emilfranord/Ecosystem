@@ -45,7 +45,6 @@ class Plant implements Organism {
     if (collision(this, o)) {
       if (o.getDiet() instanceof Herbivore) {
         size--;
-        println(size);
       }
     }
   }
