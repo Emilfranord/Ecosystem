@@ -4,7 +4,7 @@ void setup() {
   size(500, 500);
 
   rendered.add(new Plant(10, new PVector(100, 70)));
-  //rendered.add(new Animal(color(#ffa500), 10, new PVector(100, 100)));
+  rendered.add(new Animal(color(#ffa500), 10, new PVector(100, 100)));
   rendered.add(new Plant(10, new PVector(100, 40)));
   rendered.add(new Wolf(7, new PVector(120, 40) ));
   rendered.add(new Wolf(7, new PVector(130, 40) ));
@@ -14,7 +14,6 @@ void setup() {
   rendered.add(new Horse(20, new PVector(170, 55)));
   rendered.add(new Horse(20, new PVector(160, 65)));
   rendered.add(new Horse(20, new PVector(160, 75)));
-
 }
 
 void draw() {
@@ -48,20 +47,6 @@ interface Organism extends Render {
 
   void interaction(Organism o);
   Diet getDiet();
-}
-
-class Horse extends Animal {
-  Horse(int _size, PVector _position) {
-    super(color(#8E7618), _size, _position);
-    this.setDiet(new Herbivore());
-  }
-}
-
-class Wolf extends Animal {
-  Wolf(int _size, PVector _position) {
-    super(color(#d3d3d3), _size, _position);
-    this.setDiet(new Carnivore());
-  }
 }
 
 boolean collision(Organism alpha, Organism beta) {
