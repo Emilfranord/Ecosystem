@@ -14,6 +14,7 @@ void setup() {
   rendered.add(new Horse(20, new PVector(170, 55)));
   rendered.add(new Horse(20, new PVector(160, 65)));
   rendered.add(new Horse(20, new PVector(160, 75)));
+  rendered.add(new RedCabbage(new PVector(250,90)));
 }
 
 void draw() {
