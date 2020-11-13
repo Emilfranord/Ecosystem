@@ -32,7 +32,6 @@ void draw() {
       }
     }
   }
-  
   rendered = removeDead(rendered);
 }
 
