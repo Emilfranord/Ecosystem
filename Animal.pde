@@ -53,7 +53,7 @@ class Animal implements Organism {
       if (o.getDiet() instanceof Carnivore && this.getDiet() instanceof Carnivore) {
         this.attack(o);
       } else if (this.getDiet().canEat(o)) {
-        size+= size*0.1;
+        size+= 0.1;
       } else if (o.getDiet() instanceof Carnivore) {
         size--;
       }
