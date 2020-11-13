@@ -51,7 +51,18 @@ class Animal implements Organism {
 
   void interaction(Organism o) {
     if (collision(this, o)) {
-      
+      if (o.getDiet() instanceof Carnivore && this.getDiet() instanceof Carnivore) {
+        this.attack(o);
+      } else if (this.getDiet().canEat(o)) {
+        size++;
+      } else if (o.getDiet() instanceof Carnivore) {
+        size--;
+      }
     }
   }
+  
+  void attack(Organism _o){
+  Animal o = (Animal) _o;
+  
+  }   
 }
