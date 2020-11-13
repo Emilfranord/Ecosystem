@@ -1,5 +1,4 @@
 class Animal implements Organism {
-
   PVector position;
   color hideColor;
   int size;
@@ -63,6 +62,5 @@ class Animal implements Organism {
   
   void attack(Organism _o){
   Animal o = (Animal) _o;
-  
   }   
 }
