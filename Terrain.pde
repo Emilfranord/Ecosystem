@@ -12,6 +12,10 @@ class Land implements Terrain {
   
   void render(){}
   
+  PVector getPosition(){
+    return null;
+  }
+  
 }
 
 class Water implements Terrain {
