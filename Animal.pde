@@ -4,6 +4,7 @@ class Animal implements Organism {
   int size;
   int energy;
   Diet food;
+  Movement movement; 
 
   Animal(color _hide, int _size, PVector _position) {
     this.hideColor = _hide;
@@ -33,6 +34,10 @@ class Animal implements Organism {
     food = d;
   }
 
+  Movement getMovement() {
+    return this.movement;
+  }
+
   int getSize() {
     return size;
   }
@@ -43,8 +48,11 @@ class Animal implements Organism {
   }
 
   private void move() {
-    // refractor this into a interface with classes  
-    position.add(PVector.random2D());
+    PVector temp = PVector.random2D();
+
+    if (this.getMovement().canMoveTo(temp)) {
+      position.add(temp);
+    }
   }
 
 
@@ -59,8 +67,8 @@ class Animal implements Organism {
       }
     }
   }
-  
-  void attack(Organism _o){
-  Animal o = (Animal) _o;
-  }   
+
+  void attack(Organism _o) {
+    Animal o = (Animal) _o;
+  }
 }
