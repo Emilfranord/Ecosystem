@@ -3,9 +3,9 @@ ArrayList <Render> rendered = new ArrayList<Render>();
 void setup() {
   size(500, 500);
 
-  rendered.add(new Plant(10, new PVector(100, 70)));
-  rendered.add(new Animal(color(#ffa500), 10, new PVector(100, 100)));
-  rendered.add(new Plant(10, new PVector(100, 40)));
+  //rendered.add(new Plant(10, new PVector(100, 70)));
+  //rendered.add(new Animal(color(#ffa500), 10, new PVector(100, 100)));
+  //rendered.add(new Plant(10, new PVector(100, 40)));
   rendered.add(new Wolf(7, new PVector(120, 40) ));
   rendered.add(new Wolf(7, new PVector(130, 40) ));
   rendered.add(new Wolf(7, new PVector(140, 40) ));
@@ -15,6 +15,7 @@ void setup() {
   rendered.add(new Horse(20, new PVector(160, 65)));
   rendered.add(new Horse(20, new PVector(160, 75)));
   rendered.add(new RedCabbage(new PVector(250,90)));
+  rendered.add(new Vulture(new PVector(400,400)));
 }
 
 void draw() {
@@ -33,7 +34,17 @@ void draw() {
     }
   }
   rendered = removeDead(rendered);
+  spontaneousGeneration();
+  
 }
+
+void spontaneousGeneration(){
+  
+  if(frameCount % 50 == 0 ){
+   rendered.add(new Plant(10, new PVector(random(0, width), random(0, height))));
+  }
+}
+
 
 interface Render {
   void render();
