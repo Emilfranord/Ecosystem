@@ -4,11 +4,13 @@ class Animal implements Organism {
   int size;
   int energy;
   Diet food;
+  float speed;
 
   Animal(color _hide, int _size, PVector _position) {
     this.hideColor = _hide;
     this.size = _size;
     this.position = _position;
+    speed = 2;
   }
 
   void render() {
@@ -37,6 +39,14 @@ class Animal implements Organism {
     return size;
   }
 
+  float getSpeed() {
+    return speed;
+  }
+
+  void setSpeed(float _sp) {
+    this.speed = _sp;
+  }
+
 
   void update() {
     move();
@@ -44,7 +54,8 @@ class Animal implements Organism {
 
   private void move() {
     // refractor this into a interface with classes  
-    position.add(PVector.random2D());
+    //position.add(PVector.random2D());
+    position.add(PVector.random2D().mult(this.getSpeed()));
   }
 
 
@@ -59,8 +70,12 @@ class Animal implements Organism {
       }
     }
   }
-  
-  void attack(Organism _o){
-  Animal o = (Animal) _o;
-  }   
+
+  void attack(Organism _o) {
+    if (_o instanceof Animal) {
+      Animal A = (Animal) _o;
+      
+      
+    }
+  }
 }
