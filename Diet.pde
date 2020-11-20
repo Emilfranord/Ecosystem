@@ -22,7 +22,7 @@ class Sunlight implements Diet {
 
 class Scavenger implements Diet {
   boolean canEat(Organism o) {
-    return o instanceof Animal;// && o.dead
+    return o instanceof Carcass;// && o.dead
   }
 }
 

@@ -37,6 +37,7 @@ class Vulture extends Animal {
     super(color(#ab892c), _size, _position);
     super.setDiet(new Scavenger());
   }
+  
   Vulture(PVector _position){
     this(8, _position);
   }

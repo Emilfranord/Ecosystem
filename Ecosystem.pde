@@ -14,8 +14,8 @@ void setup() {
   rendered.add(new Horse(20, new PVector(170, 55)));
   rendered.add(new Horse(20, new PVector(160, 65)));
   rendered.add(new Horse(20, new PVector(160, 75)));
-  rendered.add(new RedCabbage(new PVector(250,90)));
-  rendered.add(new Vulture(new PVector(400,400)));
+  rendered.add(new RedCabbage(new PVector(250, 90)));
+  rendered.add(new Vulture(new PVector(400, 400)));
 }
 
 void draw() {
@@ -33,15 +33,16 @@ void draw() {
       }
     }
   }
+
+
   rendered = removeDead(rendered);
   spontaneousGeneration();
-  
 }
 
-void spontaneousGeneration(){
-  
-  if(frameCount % 50 == 0 ){
-   rendered.add(new Plant(10, new PVector(random(0, width), random(0, height))));
+void spontaneousGeneration() {
+
+  if (frameCount % 50 == 0 ) {
+    rendered.add(new Plant(10, new PVector(random(0, width), random(0, height))));
   }
 }
 
@@ -64,13 +65,23 @@ boolean collision(Organism alpha, Organism beta) {
   return PVector.dist(alpha.getPosition(), beta.getPosition()) <= (alpha.getSize() / 2) + (beta.getSize()/ 2);
 }
 
+ArrayList <Render> turnToCarcass(ArrayList <Render> input) {
+  ArrayList <Render> temp = new ArrayList<Render>(input);
+
+  for (Render q : input) {
+    if (q.getSize() < 5 && q.getSize() >0 && q instanceof Animal) {
+      temp.add(new Carcass((Animal) q));
+    }
+  }
+  return temp;
+}
 
 // Adam thinks this is bad code
 ArrayList <Render> removeDead(ArrayList <Render> input) {
   ArrayList <Render> temp = new ArrayList<Render>(input.size());
 
   for (Render q : input) {
-    if (q.getSize() > 0) {
+    if (q.getSize() >= 0) {
       temp.add(q);
     }
   }
