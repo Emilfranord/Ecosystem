@@ -31,3 +31,13 @@ class RedCabbage extends Cabbage {
     super(color(#814256), 4, _position);
   }
 }
+
+class Vulture extends Animal {
+  Vulture(int _size, PVector _position) {
+    super(color(#ab892c), _size, _position);
+    super.setDiet(new Scavenger());
+  }
+  Vulture(PVector _position){
+    this(8, _position);
+  }
+}
