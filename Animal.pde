@@ -74,8 +74,7 @@ class Animal implements Organism {
   void attack(Organism _o) {
     if (_o instanceof Animal) {
       Animal A = (Animal) _o;
-      
-      
     }
   }
+  
 }
