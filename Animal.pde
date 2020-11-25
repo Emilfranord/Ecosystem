@@ -53,8 +53,9 @@ class Animal implements Organism {
   }
 
   private void move() {
-    // refractor this into a interface with classes  
+    // refractor this into a interface with classes
     position.add(PVector.random2D().mult(this.getSpeed())); 
+    
     
   }
 
