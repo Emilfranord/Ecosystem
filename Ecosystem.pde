@@ -16,6 +16,8 @@ void setup() {
   rendered.add(new Horse(20, new PVector(160, 75)));
   rendered.add(new RedCabbage(new PVector(250, 90)));
   rendered.add(new Vulture(new PVector(400, 400)));
+  rendered.add(new Vulture(new PVector(400, 400)));
+  rendered.add(new Vulture(new PVector(400, 400)));
 }
 
 void draw() {
@@ -34,13 +36,12 @@ void draw() {
     }
   }
 
-
+  rendered = turnToCarcass(rendered);
   rendered = removeDead(rendered);
   spontaneousGeneration();
 }
 
 void spontaneousGeneration() {
-
   if (frameCount % 50 == 0 ) {
     rendered.add(new Plant(10, new PVector(random(0, width), random(0, height))));
   }
@@ -76,7 +77,7 @@ ArrayList <Render> turnToCarcass(ArrayList <Render> input) {
   return temp;
 }
 
-// Adam thinks this is bad code
+// Adam thinks this is bad code, yet he uses it himself
 ArrayList <Render> removeDead(ArrayList <Render> input) {
   ArrayList <Render> temp = new ArrayList<Render>(input.size());
 
