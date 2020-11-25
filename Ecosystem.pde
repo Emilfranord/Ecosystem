@@ -3,9 +3,6 @@ ArrayList <Render> rendered = new ArrayList<Render>();
 void setup() {
   size(500, 500);
 
-  //rendered.add(new Plant(10, new PVector(100, 70)));
-  //rendered.add(new Animal(color(#ffa500), 10, new PVector(100, 100)));
-  //rendered.add(new Plant(10, new PVector(100, 40)));
   rendered.add(new Wolf(7, new PVector(120, 40) ));
   rendered.add(new Wolf(7, new PVector(130, 40) ));
   rendered.add(new Wolf(7, new PVector(140, 40) ));
